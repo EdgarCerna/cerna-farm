@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { WelcomeComponent } from './home/welcome.component';
+import { LoginComponent } from './login/login.component';
+import { ManageAnimalsComponent } from './manage-animals/manage-animals.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WelcomeComponent,
+    LoginComponent,
+    ManageAnimalsComponent
   ],
   imports: [
     BrowserModule,
