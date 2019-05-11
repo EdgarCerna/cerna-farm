@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { LoginComponent } from './login/login.component';
 import { ManageAnimalsComponent } from './manage-animals/manage-animals.component';
+import { ManageBlocksComponent } from './manage-blocks/manage-blocks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     LoginComponent,
-    ManageAnimalsComponent
+    ManageAnimalsComponent,
+    ManageBlocksComponent
   ],
   imports: [
     BrowserModule,
