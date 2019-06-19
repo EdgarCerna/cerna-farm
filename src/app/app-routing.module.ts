@@ -10,9 +10,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'manage-animals', component: ManageAnimalsComponent },
   { path: 'manage-blocks', component: ManageBlocksComponent },
-  { path: 'welcome', component: WelcomeComponent },
-  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-  { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
+  { path: '', component: WelcomeComponent },
+  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

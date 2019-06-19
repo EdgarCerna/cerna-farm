@@ -5,14 +5,21 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarCollapse">
-      <div class="navbar-nav">
-          <a routerLink="/welcome" class="nav-item nav-link active">Home</a>
-          <a routerLink="manage-animals" class="nav-item nav-link">Manage Animals</a>
-          <a routerLink="manage-blocks" class="nav-item nav-link">Manage Blocks</a>
-      </div>
-      <div class="navbar-nav ml-auto">
-          <a routerLink="/login" class="nav-item nav-link">Login</a>
-      </div>
+    <div class="navbar-nav">
+        <a routerLink="" class="nav-item nav-link active">Home</a>
+        <div *ngIf="auth.user$ | async as user; else" class="navbar-nav">
+            <a routerLink="manage-animals" class="nav-item nav-link">Manage Animals</a>       
+            <a routerLink="manage-blocks" class="nav-item nav-link">Manage Blocks</a>  
+        </div>
+    </div>
+    <div *ngIf="auth.user$ | async as user; else login" class="navbar-nav ml-auto">
+        <a (click)="auth.signOut()" class="nav-item nav-link">Sign Out</a>
+    </div>
+    <ng-template #login>
+        <div class="navbar-nav ml-auto" >
+            <a (click)="auth.googleSignin()" class="nav-item nav-link">Login</a>
+        </div>
+    </ng-template>
   </div>
 </nav>
 
