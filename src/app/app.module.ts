@@ -4,13 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
-import { LoginComponent } from './login/login.component';
 import { ManageAnimalsComponent } from './manage-animals/manage-animals.component';
 import { ManageBlocksComponent } from './manage-blocks/manage-blocks.component';
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
+
+import { AuthService } from "./services/auth.service";
+import { CowService } from "./services/cow.service";
+import { HorseService } from "./services/horse.service";
 
 export const config = {
   apiKey: "AIzaSyCgIiTczurW92Z2HYe3cB8j4GetaeTd4kk",
@@ -26,9 +29,8 @@ export const config = {
   declarations: [
     AppComponent,
     WelcomeComponent,
-    LoginComponent,
     ManageAnimalsComponent,
-    ManageBlocksComponent
+    ManageBlocksComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,7 @@ export const config = {
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [AuthService, CowService, HorseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

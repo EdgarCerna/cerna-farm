@@ -1,24 +1,64 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">  
   <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav mx-auto">
-          <a href="#" class="nav-item nav-link">Cows</a>
-          <a href="#" class="nav-item nav-link">Horses</a>
-          <a href="#" class="nav-item nav-link">Sheep</a>
-          <a href="#" class="nav-item nav-link">Goats</a>
-          <a href="#" class="nav-item nav-link">Chickens</a>
+          <button (click)="setType(animalType.Cows)" class="btn-secondary">Cows</button>
+          <button (click)="setType(animalType.Horses)" class="btn-secondary">Horses</button>
+          <button class="btn-secondary">Sheep</button>
+          <button class="btn-secondary">Goats</button>
+          <button class="btn-secondary">Chickens</button>
       </div>
   </div>
 </nav>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Gender</th>
-      <th scope="col">Color</th>
-      <th scope="col">Sick?</th>
-      <th scope="col">Pregnant?</th>
-      <th><button type="button" class="btn btn-info">Details</button></th>
-    </tr>
-  </thead>
-</table>
+<ng-container [ngSwitch]="animal.type">
+  <ng-container *ngSwitchCase="animalType.Cows">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Tag ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Color</th>
+          <th scope="col">Sick?</th>
+          <th scope="col">Pregnant?</th>
+          <th></th>
+        </tr>
+      </thead>
+      <ng-container *ngFor="let cow of cows">
+        <tr>
+          <th scope="col">{{ cow.tagID }}</th>
+          <th scope="col">{{ cow.name }}</th>
+          <th scope="col">{{ cow.gender }}</th>
+          <th scope="col">{{ cow.color }}</th>
+          <th scope="col">{{ cow.sick }}</th>
+          <th scope="col">{{ cow.pregnant }}</th>
+          <th><button type="button" class="btn btn-info">Details</button></th>
+        </tr>
+      </ng-container>
+    </table>
+  </ng-container>
+  <ng-container *ngSwitchCase="animalType.Horses">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Color</th>
+          <th scope="col">Sick?</th>
+          <th scope="col">Pregnant?</th>
+          <th></th>
+        </tr>
+      </thead>
+      <ng-container *ngFor="let horse of horses">
+        <tr>
+          <th scope="col">{{ horse.name }}</th>
+          <th scope="col">{{ horse.gender }}</th>
+          <th scope="col">{{ horse.color }}</th>
+          <th scope="col">{{ horse.sick }}</th>
+          <th scope="col">{{ horse.pregnant }}</th>
+          <th><button type="button" class="btn btn-info">Details</button></th>
+        </tr>
+      </ng-container>
+    </table>
+  </ng-container>
+</ng-container>
